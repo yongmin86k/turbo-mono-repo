@@ -1,9 +1,17 @@
 {
-  "name": "my-turborepo",
-  "description": "A barebones Turborepo example for working with Task Graphs.",
+  "name": "turbo-mono-repo",
   "private": true,
-  "packageManager": "pnpm@8.15.6",
+   "scripts": {
+    "build": "turbo run build",
+    "start": "turbo run dev",
+    "lint": "turbo run lint"
+  },
   "devDependencies": {
     "turbo": "^2.5.5"
-  }
+  },
+  "packageManager": "yarn@1.22.22",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ]
 }

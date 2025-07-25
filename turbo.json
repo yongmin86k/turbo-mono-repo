@@ -3,16 +3,21 @@
   "tasks": {
     "build": {
       "dependsOn": [
-        "prebuild",
         "^build"
       ],
       "outputs": [
-        "output-file.txt",
-        "dist/**"
+        "dist/**",
+        "lib/**",
+        "*.js"
       ]
     },
-    "prebuild": {},
     "lint": {},
-    "check-types": {}
+    "clean": {
+      "cache": false
+    },
+    "start": {
+      "cache": false,
+      "persistent": true
+    }
   }
 }
