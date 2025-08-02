@@ -4,12 +4,20 @@ import SignUpScreen from "../screens/SignUpScreen"
 import { ROUTES } from "./Routes"
 import Icon from "../Components/Icon"
 import { TabParamList } from "../models/routes.model"
+import { defaultTheme } from "@rneui/base"
 
 const Tab = createBottomTabNavigator<TabParamList>()
 
 export default function TabNavigator() {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator
+      screenOptions={{
+        headerShown: false,
+        animation: "shift",
+        tabBarActiveTintColor: defaultTheme.colors.primary,
+        tabBarInactiveTintColor: defaultTheme.colors.grey3,
+      }}
+    >
       <Tab.Screen
         name={ROUTES.SIGN_IN}
         component={SignInScreen}

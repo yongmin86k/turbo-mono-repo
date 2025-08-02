@@ -23,4 +23,9 @@ export default defineConfig([
       ],
     },
   },
+  {
+    rules: {
+      'react/no-unescaped-entities': 'off',
+    }
+  },
 ])

@@ -16,7 +16,12 @@ export type HomeStackScreenProps<T extends keyof HomeStackParamList> = StackScre
 
 export type TabParamList = {
   [ROUTES.SIGN_IN]: undefined
-  [ROUTES.SIGN_UP]: undefined
+  [ROUTES.SIGN_UP]:
+    | {
+        email?: string
+        password?: string
+      }
+    | undefined
 }
 
 export type TabNavigatorProps<T extends keyof TabParamList> = BottomTabScreenProps<TabParamList, T>

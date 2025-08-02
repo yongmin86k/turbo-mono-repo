@@ -1,65 +1,69 @@
-import { Button, defaultTheme, Input } from "@rneui/base"
+import { Button, defaultTheme } from "@rneui/base"
 import { useMemo, useState } from "react"
-import {
-  Keyboard,
-  KeyboardAvoidingView,
-  Platform,
-  StyleSheet,
-  Text,
-  TouchableWithoutFeedback,
-  View,
-} from "react-native"
+import { Alert, StyleSheet, Text, TouchableOpacity } from "react-native"
+import Spacer from "../Components/Spacer"
+import { TabNavigatorProps } from "../models/routes.model"
+import { ROUTES } from "../navigations/Routes"
+import KeyboardDismissView from "../Components/KeyboardDismissView"
+import KeyboardDissmissInput from "../Components/KeyboardDissmissInput"
 
-export default function SignInScreen() {
+export default function SignInScreen(props: TabNavigatorProps<ROUTES.SIGN_IN>) {
   const [email, setEmail] = useState<string>()
+  const [password, setPassword] = useState<string>()
   const disabled = useMemo(() => !email || email.trim().length === 0, [email])
 
   return (
-    <KeyboardAvoidingView
-      style={styles.keyboardAvoidingView}
-      behavior={Platform.OS === "ios" ? "padding" : "height"}
-    >
-      <TouchableWithoutFeedback onPress={Keyboard.dismiss} style={styles.twfStyle}>
-        <View style={styles.viewStyle}>
-          <Text style={styles.text}>Please login with email</Text>
+    <KeyboardDismissView scrollEnabled containerStyle={styles.viewStyle}>
+      <Text style={styles.defaultText}>Please login with email</Text>
 
-          <Input
-            placeholder="Email"
-            autoFocus
-            autoCapitalize="none"
-            leftIcon={{ type: "font-awesome-5", name: "envelope" }}
-            leftIconContainerStyle={styles.iconContainerStyle}
-            clearButtonMode="while-editing"
-            value={email}
-            keyboardType="email-address"
-            textContentType="emailAddress"
-            returnKeyType="done"
-            onSubmitEditing={Keyboard.dismiss}
-            onEndEditing={Keyboard.dismiss}
-            onChangeText={(text) => setEmail(text)}
-          />
+      <Spacer height={24} />
 
-          <Button
-            title="Login"
-            disabled={disabled}
-            buttonStyle={[
-              styles.buttonContainerStyle,
-              { backgroundColor: defaultTheme.colors.primary },
-            ]}
-            radius={999}
-            icon={{
-              type: "font-awesome",
-              name: "send-o",
-              color: disabled ? defaultTheme.colors.grey3 : defaultTheme.colors.white,
-            }}
-            iconContainerStyle={styles.iconContainerStyle}
-            onPress={() => {
-              console.log("Login with email:", email)
-            }}
-          />
-        </View>
-      </TouchableWithoutFeedback>
-    </KeyboardAvoidingView>
+      <KeyboardDissmissInput
+        type="email"
+        placeholder="Email"
+        autoFocus
+        value={email}
+        onChangeText={(text) => setEmail(text)}
+      />
+
+      <Spacer />
+
+      <KeyboardDissmissInput
+        type="password"
+        placeholder="Password"
+        value={password}
+        onChangeText={(text) => setPassword(text)}
+      />
+
+      <Spacer height={80} />
+
+      <Button
+        title="Login"
+        disabled={disabled}
+        buttonStyle={[
+          styles.buttonContainerStyle,
+          { backgroundColor: defaultTheme.colors.primary },
+        ]}
+        radius={999}
+        icon={{
+          type: "font-awesome",
+          name: "send-o",
+          color: disabled ? defaultTheme.colors.grey3 : defaultTheme.colors.white,
+        }}
+        iconContainerStyle={styles.iconContainerStyle}
+        onPress={() => {
+          Alert.alert("Email not found", "Please register first.")
+        }}
+      />
+
+      <Spacer />
+
+      <TouchableOpacity
+        onPress={() => props.navigation.jumpTo(ROUTES.SIGN_UP, { email, password })}
+      >
+        <Text style={styles.linkText}>Don't have an account?</Text>
+      </TouchableOpacity>
+    </KeyboardDismissView>
   )
 }
 
@@ -69,21 +73,17 @@ const styles = StyleSheet.create({
     paddingRight: 16,
     paddingVertical: 16,
   },
+  defaultText: {
+    fontWeight: "bold",
+  },
   iconContainerStyle: {
     marginRight: 12,
   },
-  keyboardAvoidingView: {
-    flex: 1,
-  },
-  text: {
-    fontWeight: "bold",
-  },
-  twfStyle: {
-    flex: 1,
+  linkText: {
+    color: defaultTheme.colors.primary,
   },
   viewStyle: {
     alignItems: "center",
-    flex: 1,
     justifyContent: "center",
     paddingHorizontal: 24,
   },
