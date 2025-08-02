@@ -1,6 +1,6 @@
 import { defineConfig } from "eslint/config";
-import expoPlugin from "eslint-plugin-expo";
 import expoConfig from "eslint-config-expo/flat.js";
+import reactNativePlugin from "eslint-plugin-react-native";
 import base from "./base.js";
 
 /**
@@ -11,11 +11,16 @@ export default defineConfig([
   ...base,
   expoConfig,
   {
-    ignores: ["dist/*"],
-  },
-  {
     plugins: {
-      expo: expoPlugin,
+      "react-native": reactNativePlugin,
+    },
+    rules: {
+      "react-native/no-unused-styles": "error",
+      "react-native/sort-styles": [
+        "error",
+        "asc",
+        { ignoreClassNames: false, ignoreStyleProperties: false },
+      ],
     },
   },
 ]);

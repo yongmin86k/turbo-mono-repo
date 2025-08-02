@@ -1,6 +1,6 @@
+import turboConfig from "eslint-config-turbo/flat";
 import { defineConfig } from "eslint/config";
 import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
-import turboPlugin from "eslint-plugin-turbo";
 import tseslint from "typescript-eslint";
 import onlyWarn from "eslint-plugin-only-warn";
 
@@ -10,16 +10,9 @@ import onlyWarn from "eslint-plugin-only-warn";
  * @type {import("eslint").Linter.Config[]}
  * */
 export default defineConfig([
+  ...turboConfig,
   eslintPluginPrettierRecommended,
   ...tseslint.configs.recommended,
-  {
-    plugins: {
-      turbo: turboPlugin,
-    },
-    rules: {
-      "turbo/no-undeclared-env-vars": "warn",
-    },
-  },
   {
     plugins: {
       onlyWarn,
@@ -41,5 +34,8 @@ export default defineConfig([
       "@typescript-eslint/no-explicit-any": "warn",
       "@typescript-eslint/no-unused-vars": "warn"
     },
+  },
+  {
+    ignores: ["dist/*", "node_modules/*", "coverage/*", "build/*", "target/*", ".next/*"],
   },
 ]);

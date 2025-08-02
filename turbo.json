@@ -12,9 +12,6 @@
       ]
     },
     "lint": {},
-    "clean": {
-      "cache": false
-    },
     "start": {
       "cache": false,
       "persistent": true
