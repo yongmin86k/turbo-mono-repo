@@ -1,8 +1,8 @@
-import { createDrawerNavigator } from '@react-navigation/drawer'
-import SettingsScreen from '../screens/SettingsScreen'
-import { ROUTES } from './Routes'
-import HomeStack from './HomeStack'
-import { DrawerParamList } from '../models/routes.model'
+import { createDrawerNavigator } from "@react-navigation/drawer"
+import SettingsScreen from "../screens/SettingsScreen"
+import { ROUTES } from "./Routes"
+import HomeStack from "./HomeStack"
+import { DrawerParamList } from "../models/routes.model"
 
 const Drawer = createDrawerNavigator<DrawerParamList>()
 

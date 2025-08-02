@@ -1,9 +1,9 @@
 {
   "name": "turbo-mono-repo",
   "private": true,
-   "scripts": {
+  "scripts": {
     "build": "turbo run build",
-    "start": "turbo run dev",
+    "start": "turbo run start",
     "lint": "turbo run lint"
   },
   "devDependencies": {

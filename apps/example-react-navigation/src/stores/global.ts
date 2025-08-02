@@ -1,8 +1,8 @@
-import { create } from 'zustand'
+import { create } from "zustand"
 
 interface AuthState {
   token: string | null
-  setToken: (token: AuthState['token']) => void
+  setToken: (token: AuthState["token"]) => void
 }
 
 export const useAuthStore = create<AuthState>()((set) => ({

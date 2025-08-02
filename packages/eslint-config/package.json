@@ -8,6 +8,7 @@
     "./react-native": "./react-native.js"
   },
   "devDependencies": {
+    "@stylistic/eslint-plugin": "^5.2.2",
     "eslint": "^9.31.0",
     "eslint-config-expo": "^9.2.0",
     "eslint-config-prettier": "^10.1.8",

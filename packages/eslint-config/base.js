@@ -1,8 +1,9 @@
-import turboConfig from "eslint-config-turbo/flat";
-import { defineConfig } from "eslint/config";
-import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
-import tseslint from "typescript-eslint";
-import onlyWarn from "eslint-plugin-only-warn";
+import turboConfig from 'eslint-config-turbo/flat'
+import { defineConfig } from 'eslint/config'
+import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended'
+import tseslint from 'typescript-eslint'
+import stylistic from '@stylistic/eslint-plugin'
+import onlyWarn from 'eslint-plugin-only-warn'
 
 /**
  * A shared ESLint configuration for the repository.
@@ -20,22 +21,32 @@ export default defineConfig([
   },
   {
     rules: {
-      "prettier/prettier": [
-        "error",
-        {
-          bracketSpacing: true,
-          printWidth: 100,
-          semi: false,
-          singleQuote: true,
-          tabWidth: 2,
-          trailingComma: "all",
-        },
-      ],
-      "@typescript-eslint/no-explicit-any": "warn",
-      "@typescript-eslint/no-unused-vars": "warn"
-    },
+      'prettier/prettier': ['warn', {
+        singleQuote: false,
+        trailingComma: 'all',
+        semi: false,
+        printWidth: 100,
+        tabWidth: 2,
+      }],
+    }
   },
   {
-    ignores: ["dist/*", "node_modules/*", "coverage/*", "build/*", "target/*", ".next/*"],
+    plugins: {
+      '@stylistic': stylistic,
+    },
+    rules: {
+      '@stylistic/no-multiple-empty-lines': ['warn', { max: 1 }],
+    }
   },
-]);
+  {
+    ignores: [
+      'dist/*',
+      'node_modules/*',
+      'coverage/*',
+      'build/*',
+      'target/*',
+      '.next/*',
+      '.expo/*',
+    ],
+  },
+])

@@ -1,5 +1,5 @@
-import { Button, defaultTheme, Input } from '@rneui/base'
-import { useMemo, useState } from 'react'
+import { Button, defaultTheme, Input } from "@rneui/base"
+import { useMemo, useState } from "react"
 import {
   Keyboard,
   KeyboardAvoidingView,
@@ -8,7 +8,7 @@ import {
   Text,
   TouchableWithoutFeedback,
   View,
-} from 'react-native'
+} from "react-native"
 
 export default function SignInScreen() {
   const [email, setEmail] = useState<string>()
@@ -17,7 +17,7 @@ export default function SignInScreen() {
   return (
     <KeyboardAvoidingView
       style={styles.keyboardAvoidingView}
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
     >
       <TouchableWithoutFeedback onPress={Keyboard.dismiss} style={styles.twfStyle}>
         <View style={styles.viewStyle}>
@@ -27,7 +27,7 @@ export default function SignInScreen() {
             placeholder="Email"
             autoFocus
             autoCapitalize="none"
-            leftIcon={{ type: 'font-awesome-5', name: 'envelope' }}
+            leftIcon={{ type: "font-awesome-5", name: "envelope" }}
             leftIconContainerStyle={styles.iconContainerStyle}
             clearButtonMode="while-editing"
             value={email}
@@ -48,13 +48,13 @@ export default function SignInScreen() {
             ]}
             radius={999}
             icon={{
-              type: 'font-awesome',
-              name: 'send-o',
+              type: "font-awesome",
+              name: "send-o",
               color: disabled ? defaultTheme.colors.grey3 : defaultTheme.colors.white,
             }}
             iconContainerStyle={styles.iconContainerStyle}
             onPress={() => {
-              console.log('Login with email:', email)
+              console.log("Login with email:", email)
             }}
           />
         </View>
@@ -64,33 +64,27 @@ export default function SignInScreen() {
 }
 
 const styles = StyleSheet.create({
-  keyboardAvoidingView: {
-    flex: 1,
-  },
-  twfStyle: {
-    flex: 1,
-  },
-  twfContainerStyle: {
-    flex: 1,
-  },
-  viewStyle: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    paddingHorizontal: 24,
-  },
-  text: {
-    fontWeight: 'bold',
+  buttonContainerStyle: {
+    paddingLeft: 8,
+    paddingRight: 16,
+    paddingVertical: 16,
   },
   iconContainerStyle: {
     marginRight: 12,
   },
-  buttonContainerStyle: {
-    paddingVertical: 16,
-    paddingLeft: 8,
-    paddingRight: 16,
+  keyboardAvoidingView: {
+    flex: 1,
   },
-  something: {
-    padding: 10,
+  text: {
+    fontWeight: "bold",
+  },
+  twfStyle: {
+    flex: 1,
+  },
+  viewStyle: {
+    alignItems: "center",
+    flex: 1,
+    justifyContent: "center",
+    paddingHorizontal: 24,
   },
 })

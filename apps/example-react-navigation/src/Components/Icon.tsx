@@ -1,6 +1,6 @@
 // TODO: Split this to monorepo package
-import FontAwesome5 from '@expo/vector-icons/FontAwesome5'
-import { ComponentProps } from 'react'
+import FontAwesome5 from "@expo/vector-icons/FontAwesome5"
+import { ComponentProps } from "react"
 
 type Props = ComponentProps<typeof FontAwesome5>
 

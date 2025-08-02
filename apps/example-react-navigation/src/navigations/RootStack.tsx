@@ -1,9 +1,9 @@
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import { useAuthStore } from '../stores/global'
-import DrawerNavigator from './DrawerNavigator'
-import TabNavigator from './TabNavigator'
-import { RootStackParamList } from '../models/routes.model'
-import { ROUTES } from './Routes'
+import { createNativeStackNavigator } from "@react-navigation/native-stack"
+import { useAuthStore } from "../stores/global"
+import DrawerNavigator from "./DrawerNavigator"
+import TabNavigator from "./TabNavigator"
+import { RootStackParamList } from "../models/routes.model"
+import { ROUTES } from "./Routes"
 
 const Stack = createNativeStackNavigator<RootStackParamList>()
 

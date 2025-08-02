@@ -1,8 +1,8 @@
-import { StackScreenProps } from '@react-navigation/stack'
-import { ROUTES } from '../navigations/Routes'
-import { NavigatorScreenParams } from '@react-navigation/native'
-import { DrawerScreenProps } from '@react-navigation/drawer'
-import { BottomTabScreenProps } from '@react-navigation/bottom-tabs'
+import { StackScreenProps } from "@react-navigation/stack"
+import { ROUTES } from "../navigations/Routes"
+import { NavigatorScreenParams } from "@react-navigation/native"
+import { DrawerScreenProps } from "@react-navigation/drawer"
+import { BottomTabScreenProps } from "@react-navigation/bottom-tabs"
 
 export type HomeStackParamList = {
   [ROUTES.HOME]: undefined
