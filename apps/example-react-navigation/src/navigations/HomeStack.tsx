@@ -1,0 +1,15 @@
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import { ROUTES } from './Routes'
+import HomeScreen from '../screens/HomeScreen'
+import DetailScreen from '../screens/DetailsScreen'
+
+const Stack = createNativeStackNavigator()
+
+export default function HomeStack() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name={ROUTES.HOME} component={HomeScreen} />
+      <Stack.Screen name={ROUTES.DETAILS} component={DetailScreen} />
+    </Stack.Navigator>
+  )
+}
