@@ -2,7 +2,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import SignInScreen from "../screens/SignInScreen"
 import SignUpScreen from "../screens/SignUpScreen"
 import { ROUTES } from "./Routes"
-import Icon from "../Components/Icon"
+import IconWrapper from "../Components/IconWrapper"
 import { TabParamList } from "../models/routes.model"
 import { defaultTheme } from "@rneui/base"
 
@@ -23,7 +23,7 @@ export default function TabNavigator() {
         component={SignInScreen}
         options={{
           title: "Sign In",
-          tabBarIcon: ({ color }) => <Icon name="user-alt" color={color} size={16} />,
+          tabBarIcon: ({ color }) => <IconWrapper name="user-alt" color={color} size={16} />,
         }}
       />
       <Tab.Screen
@@ -31,7 +31,7 @@ export default function TabNavigator() {
         component={SignUpScreen}
         options={{
           title: "Sign Up",
-          tabBarIcon: ({ color }) => <Icon name="user-plus" color={color} size={16} />,
+          tabBarIcon: ({ color }) => <IconWrapper name="user-plus" color={color} size={16} />,
         }}
       />
     </Tab.Navigator>

@@ -21,7 +21,6 @@ export default function SignInScreen(props: TabNavigatorProps<ROUTES.SIGN_IN>) {
       <KeyboardDissmissInput
         type="email"
         placeholder="Email"
-        autoFocus
         value={email}
         onChangeText={(text) => setEmail(text)}
       />
