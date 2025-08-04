@@ -21,6 +21,7 @@ export default function HomeStack() {
         component={DetailScreen}
         options={{
           title: "Details",
+          presentation: "modal",
         }}
       />
     </Stack.Navigator>

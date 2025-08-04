@@ -1,7 +1,7 @@
 import { Button, defaultTheme } from "@rneui/base"
 import { useMemo, useState } from "react"
 import { Alert, StyleSheet, Text, TouchableOpacity } from "react-native"
-import Spacer from "../Components/Spacer"
+import { Spacer } from "@local/react-native-shared-ui"
 import { TabNavigatorProps } from "../models/routes.model"
 import { ROUTES } from "../navigations/Routes"
 import KeyboardDismissView from "../Components/KeyboardDismissView"

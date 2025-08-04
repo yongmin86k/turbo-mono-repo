@@ -7,5 +7,12 @@ interface AuthState {
 
 export const useAuthStore = create<AuthState>()((set) => ({
   token: null,
-  setToken: (token) => set(() => ({ token })),
+  setToken: (token) => {
+    if (token) {
+      console.log("Token is generated:", token)
+    } else {
+      console.log("User logged out, token cleared")
+    }
+    set(() => ({ token }))
+  },
 }))

@@ -1,5 +1,5 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack"
-import { useAuthStore } from "../stores/global"
+import { useAuthStore } from "../stores/authStore"
 import DrawerNavigator from "./DrawerNavigator"
 import TabNavigator from "./TabNavigator"
 import { RootStackParamList } from "../models/routes.model"

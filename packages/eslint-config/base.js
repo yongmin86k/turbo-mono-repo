@@ -1,7 +1,6 @@
 import turboConfig from 'eslint-config-turbo/flat'
 import { defineConfig } from 'eslint/config'
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended'
-import tseslint from 'typescript-eslint'
 import stylistic from '@stylistic/eslint-plugin'
 import onlyWarn from 'eslint-plugin-only-warn'
 
@@ -13,7 +12,6 @@ import onlyWarn from 'eslint-plugin-only-warn'
 export default defineConfig([
   ...turboConfig,
   eslintPluginPrettierRecommended,
-  ...tseslint.configs.recommended,
   {
     plugins: {
       onlyWarn,

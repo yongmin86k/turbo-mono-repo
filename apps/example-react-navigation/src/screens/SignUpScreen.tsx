@@ -4,10 +4,10 @@ import { TabNavigatorProps, TabParamList } from "../models/routes.model"
 import KeyboardDismissView from "../Components/KeyboardDismissView"
 import { Button, defaultTheme } from "@rneui/base"
 import { useCallback, useState } from "react"
-import Spacer from "../Components/Spacer"
+import { Spacer } from "@local/react-native-shared-ui"
 import KeyboardDissmissInput from "../Components/KeyboardDissmissInput"
 import { RouteProp, useFocusEffect, useRoute } from "@react-navigation/native"
-import { useAuthStore } from "../stores/global"
+import { useAuthStore } from "../stores/authStore"
 
 export default function SignUpScreen(props: TabNavigatorProps<ROUTES.SIGN_UP>) {
   const { params } = useRoute<RouteProp<TabParamList, ROUTES.SIGN_UP>>()
@@ -32,8 +32,8 @@ export default function SignUpScreen(props: TabNavigatorProps<ROUTES.SIGN_UP>) {
       console.log("Sign up with email:", email)
       const token = new Date().toISOString()
       setToken(token)
-      console.log("Token is generated:", token)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [password, confirmPassword, email])
 
   useFocusEffect(

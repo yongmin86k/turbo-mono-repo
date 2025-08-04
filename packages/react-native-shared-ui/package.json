@@ -1,16 +1,20 @@
 {
   "name": "@local/react-native-shared-ui",
   "version": "0.0.0",
+  "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
     "build": "tsup",
     "start": "tsup --watch",
     "clean": "rm -rf dist",
+    "lint": "eslint .",
     "check-types": "tsc --noEmit"
   },
   "devDependencies": {
+    "@local/eslint-config": "*",
     "@local/typescript-config": "*",
+    "eslint": "9.31.0",
     "tsup": "^8.5.0",
     "typescript": "5.8.3"
   },
