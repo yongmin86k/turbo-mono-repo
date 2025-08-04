@@ -1,0 +1,23 @@
+{
+  "name": "@local/react-native-shared-ui",
+  "version": "0.0.0",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsup",
+    "start": "tsup --watch",
+    "clean": "rm -rf dist",
+    "check-types": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@local/typescript-config": "*",
+    "tsup": "^8.5.0",
+    "typescript": "5.8.3"
+  },
+  "peerDependencies": {
+    "@rneui/base": "4.0.0-rc.8",
+    "@rneui/themed": "4.0.0-rc.8",
+    "react": "19.0.0",
+    "react-native": "0.79.5"
+  }
+}

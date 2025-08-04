@@ -1,0 +1,5 @@
+{
+  "extends": "@local/typescript-config/react-native.json",
+  "include": ["src"],
+  "exclude": ["dist", "build", "node_modules"]
+}
