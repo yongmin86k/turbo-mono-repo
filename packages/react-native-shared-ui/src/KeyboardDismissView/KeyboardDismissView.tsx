@@ -1,8 +1,9 @@
-import { PropsWithChildren } from "react"
+import React from "react"
 import {
   Keyboard,
   KeyboardAvoidingView,
   Platform,
+  SafeAreaView,
   ScrollView,
   StyleProp,
   StyleSheet,
@@ -10,7 +11,6 @@ import {
   View,
   ViewStyle,
 } from "react-native"
-import { SafeAreaView } from "react-native-safe-area-context"
 
 interface Props {
   containerStyle?: StyleProp<ViewStyle>
@@ -21,7 +21,7 @@ export default function KeyboardDismissView({
   children,
   containerStyle,
   scrollEnabled,
-}: PropsWithChildren<Props>) {
+}: React.PropsWithChildren<Props>) {
   return (
     <SafeAreaView style={styles.view}>
       <KeyboardAvoidingView

@@ -1,9 +1,10 @@
 import { Pokemon } from "pokenode-ts"
 import { useMemo } from "react"
-import { ActivityIndicator, FlatList, StyleSheet, Text, View } from "react-native"
+import { ActivityIndicator, FlatList, ListRenderItem, StyleSheet, Text, View } from "react-native"
 import PokemonListItem from "./PokemonListItem"
 import { Spacer } from "@local/react-native-shared-ui"
 import { defaultTheme } from "@rneui/base"
+import { createElementKey } from "../../Utils/helpers"
 
 interface Props {
   pokemons: Map<number, Pokemon>
@@ -12,6 +13,11 @@ interface Props {
 
 export default function PokemonList(props: Props) {
   const pokemonsArray = useMemo(() => Array.from(props.pokemons.values()), [props.pokemons])
+
+  const keyExtractor = (item: Pokemon) => createElementKey(item)
+  const renderItem: ListRenderItem<Pokemon> = ({ item }) => (
+    <PokemonListItem key={item.id} item={item} />
+  )
 
   return (
     <FlatList
@@ -23,8 +29,8 @@ export default function PokemonList(props: Props) {
         bottom: props.pokemons.size > 0 ? 200 : 48,
       }}
       data={pokemonsArray}
-      keyExtractor={(item, index) => `${item.id}-${index}`}
-      renderItem={({ item, index }) => <PokemonListItem key={`${item.id}-${index}`} item={item} />}
+      keyExtractor={keyExtractor}
+      renderItem={renderItem}
       ItemSeparatorComponent={() => (
         <View style={{ paddingHorizontal: 24 }}>
           <Spacer height={2} />

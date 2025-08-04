@@ -11,3 +11,7 @@ export const getPokemonImageUrl = (pokemon: Pokemon): string | undefined => {
 export const getPokemonType = (pokemon: Pokemon) => {
   return pokemon.types.map((t) => t.type.name).join(", ")
 }
+
+export const createElementKey = (pokemon: Pokemon) => {
+  return `${pokemon.id}-${pokemon.name}`
+}
