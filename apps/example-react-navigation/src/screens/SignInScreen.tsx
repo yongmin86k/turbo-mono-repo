@@ -4,12 +4,15 @@ import { Alert, StyleSheet, Text, TouchableOpacity } from "react-native"
 import { KeyboardDismissView, Spacer } from "@local/react-native-shared-ui"
 import { TabNavigatorProps } from "../models/routes.model"
 import { ROUTES } from "../navigations/Routes"
-import KeyboardDissmissInput from "../Components/KeyboardDissmissInput"
+import KeyboardDissmissInput from "../components/KeyboardDissmissInput"
+import useLifeCycleLog from "../hooks/useLifeCycleLog"
 
 export default function SignInScreen(props: TabNavigatorProps<ROUTES.SIGN_IN>) {
   const [email, setEmail] = useState<string>()
   const [password, setPassword] = useState<string>()
   const disabled = useMemo(() => !email || email.trim().length === 0, [email])
+
+  useLifeCycleLog(ROUTES.SIGN_IN)
 
   return (
     <KeyboardDismissView scrollEnabled containerStyle={styles.viewStyle}>

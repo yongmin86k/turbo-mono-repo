@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react"
 import { setMappedPokemons, usePokemonStore } from "../stores/pokemonStore"
-import { POKEMON_API } from "../APIs/pokemonAPI"
+import { POKEMON_API } from "../api/pokemonAPI"
 import { chunk } from "lodash"
 import { Pokemon } from "pokenode-ts"
-import PokemonList from "../Components/PokemonList/PokemonList"
+import PokemonList from "../components/PokemonList/PokemonList"
+import useLifeCycleLog from "../hooks/useLifeCycleLog"
+import { ROUTES } from "../navigations/Routes"
 
 export default function HomeScreen() {
   const pokemons = usePokemonStore((state) => state.pokemons)
@@ -47,9 +49,10 @@ export default function HomeScreen() {
   }
 
   useEffect(() => {
-    console.log("HomeScreen mounted")
     fetchPokemons()
   }, [])
+
+  useLifeCycleLog(ROUTES.HOME)
 
   return <PokemonList pokemons={pokemons} isLoading={isLoading} />
 }

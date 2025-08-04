@@ -4,7 +4,7 @@ import { ROUTES } from "./Routes"
 import HomeStack from "./HomeStack"
 import { DrawerParamList } from "../models/routes.model"
 import { TouchableOpacity } from "react-native"
-import IconWrapper from "../Components/IconWrapper"
+import IconWrapper from "../components/IconWrapper"
 import { useAuthStore } from "../stores/authStore"
 
 const Drawer = createDrawerNavigator<DrawerParamList>()

@@ -5,8 +5,9 @@ import { RouteProp, useRoute } from "@react-navigation/native"
 import { useEffect, useMemo } from "react"
 import { upperFirst } from "lodash"
 import { Avatar, defaultTheme } from "@rneui/base"
-import { getPokemonImageUrl, getPokemonType } from "../Utils/helpers"
+import { getPokemonImageUrl, getPokemonType } from "../utils/helpers"
 import { Spacer } from "@local/react-native-shared-ui"
+import useLifeCycleLog from "../hooks/useLifeCycleLog"
 
 type Props = HomeStackScreenProps<ROUTES.DETAILS>
 
@@ -31,6 +32,8 @@ export default function DetailScreen(props: Props) {
   useEffect(() => {
     setNavigationOptions()
   }, [])
+
+  useLifeCycleLog(ROUTES.DETAILS)
 
   return (
     <SafeAreaView style={styles.view}>

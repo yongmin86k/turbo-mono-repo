@@ -2,7 +2,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import SignInScreen from "../screens/SignInScreen"
 import SignUpScreen from "../screens/SignUpScreen"
 import { ROUTES } from "./Routes"
-import IconWrapper from "../Components/IconWrapper"
+import IconWrapper from "../components/IconWrapper"
 import { TabParamList } from "../models/routes.model"
 import { defaultTheme } from "@rneui/base"
 

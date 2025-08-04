@@ -4,9 +4,10 @@ import { TabNavigatorProps, TabParamList } from "../models/routes.model"
 import { Button, defaultTheme } from "@rneui/base"
 import { useCallback, useState } from "react"
 import { KeyboardDismissView, Spacer } from "@local/react-native-shared-ui"
-import KeyboardDissmissInput from "../Components/KeyboardDissmissInput"
+import KeyboardDissmissInput from "../components/KeyboardDissmissInput"
 import { RouteProp, useFocusEffect, useRoute } from "@react-navigation/native"
 import { useAuthStore } from "../stores/authStore"
+import useLifeCycleLog from "../hooks/useLifeCycleLog"
 
 export default function SignUpScreen(props: TabNavigatorProps<ROUTES.SIGN_UP>) {
   const { params } = useRoute<RouteProp<TabParamList, ROUTES.SIGN_UP>>()
@@ -47,6 +48,8 @@ export default function SignUpScreen(props: TabNavigatorProps<ROUTES.SIGN_UP>) {
       }
     }, [params]),
   )
+
+  useLifeCycleLog(ROUTES.SIGN_UP)
 
   return (
     <KeyboardDismissView containerStyle={styles.viewStyle}>
