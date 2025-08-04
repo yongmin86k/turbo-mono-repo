@@ -1,35 +1,39 @@
-import { Avatar, ListItem } from "@rneui/base"
+import { Spacer } from "@local/react-native-shared-ui"
+import { NavigationProp, useNavigation } from "@react-navigation/native"
+import { Avatar, defaultTheme, ListItem } from "@rneui/base"
 import { upperFirst } from "lodash"
 import { Pokemon } from "pokenode-ts"
-import { Text } from "react-native"
+import { TouchableOpacity } from "react-native"
+import { HomeStackParamList } from "../../models/routes.model"
+import { ROUTES } from "../../navigations/Routes"
+import { getPokemonImageUrl, getPokemonType } from "../../Utils/helpers"
 
 interface Props {
   item: Pokemon
 }
 
 export default function PokemonListItem({ item }: Props) {
-  const imageUri =
-    item.sprites.other?.["official-artwork"].front_default ||
-    item.sprites.front_default ||
-    undefined
+  const navigation = useNavigation<NavigationProp<HomeStackParamList>>()
+
+  const imageUri = getPokemonImageUrl(item)
 
   return (
-    <ListItem bottomDivider>
-      <Avatar source={{ uri: imageUri }} />
+    <TouchableOpacity onPress={() => navigation.navigate(ROUTES.DETAILS, { pokemon: item })}>
+      <ListItem containerStyle={{ backgroundColor: "transparent", paddingHorizontal: 24 }}>
+        <Avatar source={{ uri: imageUri }} />
 
-      <ListItem.Content>
-        <ListItem.Title>
-          <Text>
+        <ListItem.Content>
+          <ListItem.Title>
             No. {item.id} {upperFirst(item.name)}
-          </Text>
-        </ListItem.Title>
+          </ListItem.Title>
 
-        <ListItem.Subtitle>
-          <Text>Type: {item.types.map((t) => t.type.name).join(", ")}</Text>
-        </ListItem.Subtitle>
-      </ListItem.Content>
+          <Spacer height={2} />
 
-      <ListItem.Chevron />
-    </ListItem>
+          <ListItem.Subtitle style={{ color: defaultTheme.colors.grey3 }}>
+            Type: {getPokemonType(item)}
+          </ListItem.Subtitle>
+        </ListItem.Content>
+      </ListItem>
+    </TouchableOpacity>
   )
 }

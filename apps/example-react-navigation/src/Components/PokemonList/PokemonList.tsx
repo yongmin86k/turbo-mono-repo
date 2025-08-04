@@ -3,6 +3,7 @@ import { useMemo } from "react"
 import { ActivityIndicator, FlatList, StyleSheet, Text, View } from "react-native"
 import PokemonListItem from "./PokemonListItem"
 import { Spacer } from "@local/react-native-shared-ui"
+import { defaultTheme } from "@rneui/base"
 
 interface Props {
   pokemons: Map<number, Pokemon>
@@ -24,23 +25,28 @@ export default function PokemonList(props: Props) {
       data={pokemonsArray}
       keyExtractor={(item, index) => `${item.id}-${index}`}
       renderItem={({ item, index }) => <PokemonListItem key={`${item.id}-${index}`} item={item} />}
+      ItemSeparatorComponent={() => (
+        <View style={{ paddingHorizontal: 24 }}>
+          <Spacer height={2} />
+          <View style={{ height: 1, backgroundColor: defaultTheme.colors.grey4 }} />
+          <Spacer height={2} />
+        </View>
+      )}
       ListEmptyComponent={
-        props.isLoading ? (
-          <View>
-            <ActivityIndicator />
+        <View>
+          {props.isLoading ? (
+            <>
+              <ActivityIndicator />
 
-            <Spacer height={8} />
-            <Text>Loading...</Text>
-
-            <Spacer height={120} />
-          </View>
-        ) : (
-          <View>
+              <Spacer height={8} />
+              <Text>Loading...</Text>
+            </>
+          ) : (
             <Text>No data</Text>
+          )}
 
-            <Spacer height={120} />
-          </View>
-        )
+          <Spacer height={120} />
+        </View>
       }
     />
   )

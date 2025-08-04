@@ -22,6 +22,7 @@ export default function HomeStack() {
         options={{
           title: "Details",
           presentation: "modal",
+          gestureEnabled: false,
         }}
       />
     </Stack.Navigator>

@@ -3,10 +3,13 @@ import { ROUTES } from "../navigations/Routes"
 import { NavigatorScreenParams } from "@react-navigation/native"
 import { DrawerScreenProps } from "@react-navigation/drawer"
 import { BottomTabScreenProps } from "@react-navigation/bottom-tabs"
+import { Pokemon } from "pokenode-ts"
 
 export type HomeStackParamList = {
   [ROUTES.HOME]: undefined
-  [ROUTES.DETAILS]: undefined
+  [ROUTES.DETAILS]: {
+    pokemon: Pokemon
+  }
 }
 
 export type HomeStackScreenProps<T extends keyof HomeStackParamList> = StackScreenProps<
@@ -47,7 +50,6 @@ export type RootStackScreenProps<T extends keyof RootStackParamList> = StackScre
 >
 
 declare global {
-  // eslint-disable-next-line @typescript-eslint/no-namespace
   namespace ReactNavigation {
     // eslint-disable-next-line @typescript-eslint/no-empty-object-type
     interface RootParamList extends RootStackParamList {}

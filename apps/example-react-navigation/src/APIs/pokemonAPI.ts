@@ -1,19 +1,16 @@
 import { NamedAPIResource, PokemonClient } from "pokenode-ts"
 
 function pokemonInstance() {
-  const api = new PokemonClient()
+  const pokemonApi = new PokemonClient()
   const defaultOffset = 0
   const defaultLimit = 99999
 
   return {
     getPokemonByName: async (pokemon: NamedAPIResource) => {
-      return api.getPokemonByName(pokemon.name)
+      return pokemonApi.getPokemonByName(pokemon.name)
     },
     listPokemons: async () => {
-      return api.listPokemons(defaultOffset, defaultLimit)
-    },
-    listTypes: async () => {
-      return api.listTypes(defaultOffset, defaultLimit)
+      return pokemonApi.listPokemons(defaultOffset, defaultLimit)
     },
   }
 }
