@@ -6,6 +6,7 @@ import { DrawerParamList } from "../models/routes.model"
 import { TouchableOpacity } from "react-native"
 import IconWrapper from "../components/IconWrapper"
 import { useAuthStore } from "../stores/authStore"
+import FavouritesScreen from "../screens/FavouritesScreen"
 
 const Drawer = createDrawerNavigator<DrawerParamList>()
 
@@ -32,6 +33,15 @@ export default function DrawerNavigator() {
           title: "Home",
         }}
       />
+
+      <Drawer.Screen
+        name={ROUTES.FAVOURITES}
+        component={FavouritesScreen}
+        options={{
+          title: "Favourites",
+        }}
+      />
+
       <Drawer.Screen
         name={ROUTES.SETTINGS}
         component={SettingsScreen}

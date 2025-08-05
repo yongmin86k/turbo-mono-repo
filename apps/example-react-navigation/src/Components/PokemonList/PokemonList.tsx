@@ -9,6 +9,7 @@ import { createElementKey } from "../../utils/helpers"
 interface Props {
   pokemons: Map<number, Pokemon>
   isLoading: boolean
+  onPress?: (id: number) => void
 }
 
 export default function PokemonList(props: Props) {
@@ -16,7 +17,7 @@ export default function PokemonList(props: Props) {
 
   const keyExtractor = (item: Pokemon) => createElementKey(item)
   const renderItem: ListRenderItem<Pokemon> = ({ item }) => (
-    <PokemonListItem key={item.id} item={item} />
+    <PokemonListItem key={item.id} item={item} onPress={props.onPress} />
   )
 
   return (

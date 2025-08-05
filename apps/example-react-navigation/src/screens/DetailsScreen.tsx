@@ -4,10 +4,11 @@ import { ROUTES } from "../navigations/Routes"
 import { RouteProp, useRoute } from "@react-navigation/native"
 import { useEffect, useMemo } from "react"
 import { upperFirst } from "lodash"
-import { Avatar, defaultTheme } from "@rneui/base"
+import { Avatar, defaultTheme, Icon } from "@rneui/base"
 import { getPokemonImageUrl, getPokemonType } from "../utils/helpers"
 import { Spacer } from "@local/react-native-shared-ui"
 import useLifeCycleLog from "../hooks/useLifeCycleLog"
+import { toggleFavourite, useFavouriteStore } from "../stores/favouriteStore"
 
 type Props = HomeStackScreenProps<ROUTES.DETAILS>
 
@@ -15,6 +16,7 @@ export default function DetailScreen(props: Props) {
   const {
     params: { pokemon },
   } = useRoute<RouteProp<HomeStackParamList, ROUTES.DETAILS>>()
+  const isFaved = useFavouriteStore((state) => state.isFaved(pokemon.id))
   const imageUri = useMemo(() => getPokemonImageUrl(pokemon), [pokemon])
 
   const setNavigationOptions = () => {
@@ -58,6 +60,15 @@ export default function DetailScreen(props: Props) {
           <Spacer height={4} />
 
           <Text>Type: {getPokemonType(pokemon)}</Text>
+
+          <Spacer />
+
+          <Icon
+            type="font-awesome"
+            name={isFaved ? "heart" : "heart-o"}
+            color={isFaved ? defaultTheme.colors.secondary : defaultTheme.colors.grey3}
+            onPress={() => toggleFavourite(pokemon.id)}
+          />
 
           <Spacer height={200} />
 

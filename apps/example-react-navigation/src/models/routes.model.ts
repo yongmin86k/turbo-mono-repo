@@ -31,6 +31,7 @@ export type TabNavigatorProps<T extends keyof TabParamList> = BottomTabScreenPro
 
 export type DrawerParamList = {
   [ROUTES.HOME_STACK]: undefined
+  [ROUTES.FAVOURITES]: undefined
   [ROUTES.SETTINGS]: undefined
 }
 

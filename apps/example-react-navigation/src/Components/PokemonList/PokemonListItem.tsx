@@ -6,23 +6,28 @@ import { Pokemon } from "pokenode-ts"
 import { HomeStackParamList } from "../../models/routes.model"
 import { ROUTES } from "../../navigations/Routes"
 import { getPokemonImageUrl, getPokemonType } from "../../utils/helpers"
-import { ActivityIndicator, StyleSheet } from "react-native"
+import { ActivityIndicator, StyleSheet, TouchableOpacity } from "react-native"
 import { useCallback } from "react"
 import { ListItemContent } from "@rneui/base/dist/ListItem/ListItem.Content"
+import { toggleFavourite, useFavouriteStore } from "../../stores/favouriteStore"
 
 interface Props {
   item: Pokemon
+  onPress?: (id: number) => void
 }
 
-export default function PokemonListItem({ item }: Props) {
+export default function PokemonListItem({ item, onPress }: Props) {
   const navigation = useNavigation<NavigationProp<HomeStackParamList>>()
+  const isFaved = useFavouriteStore((state) => state.isFaved(item.id))
 
   const getImage = useCallback(() => getPokemonImageUrl(item), [])
 
   return (
     <ListItem
       containerStyle={styles.list}
-      onPress={() => navigation.navigate(ROUTES.DETAILS, { pokemon: item })}
+      onPress={() =>
+        onPress ? onPress(item.id) : navigation.navigate(ROUTES.DETAILS, { pokemon: item })
+      }
     >
       <Image
         source={{ uri: getImage() }}
@@ -41,6 +46,18 @@ export default function PokemonListItem({ item }: Props) {
           Type: {getPokemonType(item)}
         </ListItem.Subtitle>
       </ListItemContent>
+
+      <TouchableOpacity
+        onPress={() => toggleFavourite(item.id)}
+        hitSlop={16}
+        style={{ alignSelf: "center" }}
+      >
+        <ListItem.Chevron
+          type="font-awesome"
+          name={isFaved ? "heart" : "heart-o"}
+          color={isFaved ? defaultTheme.colors.secondary : defaultTheme.colors.grey3}
+        />
+      </TouchableOpacity>
     </ListItem>
   )
 }
