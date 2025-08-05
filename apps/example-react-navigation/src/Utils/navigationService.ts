@@ -27,17 +27,10 @@ const navigationService = () => {
     onReadyCallback(action)
   }
 
-  const goBack = () => {
-    log("Go back")
-
-    onReadyCallback(CommonActions.goBack())
-  }
-
   return {
     ref,
     currentScreen,
     goToDetails,
-    goBack,
   }
 }
 
