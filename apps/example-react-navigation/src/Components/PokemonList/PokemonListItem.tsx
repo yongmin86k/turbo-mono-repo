@@ -3,7 +3,7 @@ import { NavigationProp, useNavigation } from "@react-navigation/native"
 import { defaultTheme, ListItem, Image } from "@rneui/base"
 import { upperFirst } from "lodash"
 import { Pokemon } from "pokenode-ts"
-import { HomeStackParamList } from "../../models/routes.model"
+import { RootStackParamList } from "../../models/routes.model"
 import { ROUTES } from "../../navigations/Routes"
 import { getPokemonImageUrl, getPokemonType } from "../../utils/helpers"
 import { ActivityIndicator, StyleSheet, TouchableOpacity } from "react-native"
@@ -17,7 +17,7 @@ interface Props {
 }
 
 export default function PokemonListItem({ item, onPress }: Props) {
-  const navigation = useNavigation<NavigationProp<HomeStackParamList>>()
+  const navigation = useNavigation<NavigationProp<RootStackParamList>>()
   const isFaved = useFavouriteStore((state) => state.isFaved(item.id))
 
   const getImage = useCallback(() => getPokemonImageUrl(item), [])

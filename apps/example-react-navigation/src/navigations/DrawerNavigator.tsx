@@ -1,11 +1,11 @@
 import { createDrawerNavigator } from "@react-navigation/drawer"
 import SettingsScreen from "../screens/SettingsScreen"
 import { ROUTES } from "./Routes"
-import HomeStack from "./HomeStack"
 import { DrawerParamList } from "../models/routes.model"
 import { TouchableOpacity } from "react-native"
 import IconWrapper from "../components/IconWrapper"
 import { useAuthStore } from "../stores/authStore"
+import HomeScreen from "../screens/HomeScreen"
 import FavouritesScreen from "../screens/FavouritesScreen"
 
 const Drawer = createDrawerNavigator<DrawerParamList>()
@@ -27,8 +27,8 @@ export default function DrawerNavigator() {
       }}
     >
       <Drawer.Screen
-        name={ROUTES.HOME_STACK}
-        component={HomeStack}
+        name={ROUTES.HOME}
+        component={HomeScreen}
         options={{
           title: "Home",
         }}

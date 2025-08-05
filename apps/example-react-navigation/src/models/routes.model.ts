@@ -7,9 +7,6 @@ import { Pokemon } from "pokenode-ts"
 
 export type HomeStackParamList = {
   [ROUTES.HOME]: undefined
-  [ROUTES.DETAILS]: {
-    pokemon: Pokemon
-  }
 }
 
 export type HomeStackScreenProps<T extends keyof HomeStackParamList> = StackScreenProps<
@@ -30,7 +27,7 @@ export type TabParamList = {
 export type TabNavigatorProps<T extends keyof TabParamList> = BottomTabScreenProps<TabParamList, T>
 
 export type DrawerParamList = {
-  [ROUTES.HOME_STACK]: undefined
+  [ROUTES.HOME]: undefined
   [ROUTES.FAVOURITES]: undefined
   [ROUTES.SETTINGS]: undefined
 }
@@ -40,8 +37,20 @@ export type DrawerNavigatorProps<T extends keyof DrawerParamList> = DrawerScreen
   T
 >
 
+export type FavouriteStackParamList = {
+  [ROUTES.FAVOURITES]: undefined
+}
+
+export type FavouriteStackScreenProps<T extends keyof FavouriteStackParamList> = StackScreenProps<
+  FavouriteStackParamList,
+  T
+>
+
 export type RootStackParamList = {
   [ROUTES.DRAWER]: NavigatorScreenParams<DrawerParamList>
+  [ROUTES.DETAILS]: {
+    pokemon: Pokemon
+  }
   [ROUTES.TAB]: NavigatorScreenParams<TabParamList>
 }
 

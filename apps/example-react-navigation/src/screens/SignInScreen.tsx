@@ -1,3 +1,4 @@
+// Default theme ref: https://reactnativeelements.com/docs/customization/theme_object#default-light-colors
 import { Button, defaultTheme } from "@rneui/base"
 import { useMemo, useState } from "react"
 import { Alert, StyleSheet, Text, TouchableOpacity } from "react-native"

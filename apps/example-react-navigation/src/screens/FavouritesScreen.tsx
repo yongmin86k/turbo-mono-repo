@@ -5,6 +5,7 @@ import { useFavouriteStore } from "../stores/favouriteStore"
 import { Pokemon } from "pokenode-ts"
 import PokemonList from "../components/PokemonList/PokemonList"
 import { useEffect, useState } from "react"
+import navigationService from "../utils/navigationService"
 
 export default function FavouritesScreen() {
   const pokemons = usePokemonStore((state) => state.pokemons)
@@ -31,8 +32,13 @@ export default function FavouritesScreen() {
       pokemons={favPokemons}
       isLoading={false}
       onPress={(id) => {
-        // TODO: use navigation ref
-        console.log("pressed:" + id)
+        const pokemon = favPokemons.get(id)
+
+        if (pokemon) {
+          navigationService.goToDetails({
+            pokemon,
+          })
+        }
       }}
     />
   )

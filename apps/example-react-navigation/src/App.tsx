@@ -1,14 +1,13 @@
 import { SafeAreaProvider } from "react-native-safe-area-context"
 import { NavigationContainer } from "@react-navigation/native"
 import RootStack from "./navigations/RootStack"
-import TestingScreen from "./screens/TestingScreen"
+import navigationService from "./utils/navigationService"
 
 export default function App() {
   return (
     <SafeAreaProvider>
-      <NavigationContainer>
+      <NavigationContainer ref={navigationService.ref}>
         <RootStack />
-        {/* <TestingScreen /> */}
       </NavigationContainer>
     </SafeAreaProvider>
   )

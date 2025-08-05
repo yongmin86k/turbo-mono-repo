@@ -1,5 +1,5 @@
 import { Text, TouchableOpacity, View, StyleSheet, SafeAreaView, ScrollView } from "react-native"
-import { HomeStackParamList, HomeStackScreenProps } from "../models/routes.model"
+import { RootStackParamList, RootStackScreenProps } from "../models/routes.model"
 import { ROUTES } from "../navigations/Routes"
 import { RouteProp, useRoute } from "@react-navigation/native"
 import { useEffect, useMemo } from "react"
@@ -10,21 +10,21 @@ import { Spacer } from "@local/react-native-shared-ui"
 import useLifeCycleLog from "../hooks/useLifeCycleLog"
 import { toggleFavourite, useFavouriteStore } from "../stores/favouriteStore"
 
-type Props = HomeStackScreenProps<ROUTES.DETAILS>
-
-export default function DetailScreen(props: Props) {
+export default function DetailScreen(props: RootStackScreenProps<ROUTES.DETAILS>) {
   const {
     params: { pokemon },
-  } = useRoute<RouteProp<HomeStackParamList, ROUTES.DETAILS>>()
+  } = useRoute<RouteProp<RootStackParamList, ROUTES.DETAILS>>()
+
   const isFaved = useFavouriteStore((state) => state.isFaved(pokemon.id))
   const imageUri = useMemo(() => getPokemonImageUrl(pokemon), [pokemon])
 
+  const handleClose = props.navigation.goBack
+
   const setNavigationOptions = () => {
     props.navigation.setOptions({
-      headerShown: true,
       title: upperFirst(pokemon.name ?? "Details"),
       headerLeft: () => (
-        <TouchableOpacity onPress={() => props.navigation.goBack()}>
+        <TouchableOpacity onPress={handleClose}>
           <Text style={styles.closeButtonText}>Close</Text>
         </TouchableOpacity>
       ),
@@ -72,7 +72,7 @@ export default function DetailScreen(props: Props) {
 
           <Spacer height={200} />
 
-          <TouchableOpacity onPress={() => props.navigation.goBack()}>
+          <TouchableOpacity onPress={handleClose}>
             <Text style={styles.closeButtonText}>Close</Text>
           </TouchableOpacity>
         </View>
