@@ -4,13 +4,14 @@ import { ROUTES } from "./Routes"
 import { DrawerParamList } from "../models/routes.model"
 import { TouchableOpacity } from "react-native"
 import IconWrapper from "../components/IconWrapper"
-import { useAuthStore } from "../stores/authStore"
 import HomeScreen from "../screens/HomeScreen"
 import FavouritesScreen from "../screens/FavouritesScreen"
+import { useRootStore } from "../stores/rootStore"
 
 const Drawer = createDrawerNavigator<DrawerParamList>()
 
 export default function DrawerNavigator() {
+  const { useAuthStore } = useRootStore()
   const setToken = useAuthStore((state) => state.setToken)
 
   return (

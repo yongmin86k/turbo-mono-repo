@@ -1,10 +1,11 @@
 import { View, StyleSheet } from "react-native"
 import { ROUTES } from "../navigations/Routes"
 import useLifeCycleLog from "../hooks/useLifeCycleLog"
-import { Button } from "@rneui/base"
-import { useAuthStore } from "../stores/authStore"
+import { Button } from "@rn-vui/base"
+import { useRootStore } from "../stores/rootStore"
 
 export default function SettingsScreen() {
+  const { useAuthStore } = useRootStore()
   const setToken = useAuthStore((state) => state.setToken)
 
   useLifeCycleLog(ROUTES.SETTINGS)

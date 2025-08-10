@@ -4,7 +4,7 @@ import SignUpScreen from "../screens/SignUpScreen"
 import { ROUTES } from "./Routes"
 import IconWrapper from "../components/IconWrapper"
 import { TabParamList } from "../models/routes.model"
-import { defaultTheme } from "@rneui/base"
+import { defaultTheme } from "@rn-vui/base"
 
 const Tab = createBottomTabNavigator<TabParamList>()
 

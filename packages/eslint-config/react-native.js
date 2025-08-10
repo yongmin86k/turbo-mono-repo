@@ -1,6 +1,7 @@
 import { defineConfig } from 'eslint/config'
 import expoConfig from 'eslint-config-expo/flat.js'
 import reactNativePlugin from 'eslint-plugin-react-native'
+import testingLibraryPlugin from 'eslint-plugin-testing-library'
 import base from './base.js'
 
 /**
@@ -28,4 +29,10 @@ export default defineConfig([
       'react/no-unescaped-entities': 'off',
     }
   },
+  {
+    plugins: {
+      'testing-library/react-native': testingLibraryPlugin,
+      files: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[jt]s?(x)'],
+    },
+  }
 ])

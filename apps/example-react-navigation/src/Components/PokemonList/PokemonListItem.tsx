@@ -1,6 +1,6 @@
 import { Spacer } from "@local/react-native-shared-ui"
 import { NavigationProp, useNavigation } from "@react-navigation/native"
-import { defaultTheme, ListItem, Image } from "@rneui/base"
+import { defaultTheme, ListItem, Image } from "@rn-vui/base"
 import { upperFirst } from "lodash"
 import { Pokemon } from "pokenode-ts"
 import { RootStackParamList } from "../../models/routes.model"
@@ -8,8 +8,8 @@ import { ROUTES } from "../../navigations/Routes"
 import { getPokemonImageUrl, getPokemonType } from "../../utils/helpers"
 import { ActivityIndicator, StyleSheet, TouchableOpacity } from "react-native"
 import { useCallback } from "react"
-import { ListItemContent } from "@rneui/base/dist/ListItem/ListItem.Content"
-import { toggleFavourite, useFavouriteStore } from "../../stores/favouriteStore"
+import { toggleFavourite } from "../../stores/favouriteStore"
+import { useRootStore } from "../../stores/rootStore"
 
 interface Props {
   item: Pokemon
@@ -18,6 +18,7 @@ interface Props {
 
 export default function PokemonListItem({ item, onPress }: Props) {
   const navigation = useNavigation<NavigationProp<RootStackParamList>>()
+  const { useFavouriteStore } = useRootStore()
   const isFaved = useFavouriteStore((state) => state.isFaved(item.id))
 
   const getImage = useCallback(() => getPokemonImageUrl(item), [])
@@ -35,7 +36,7 @@ export default function PokemonListItem({ item, onPress }: Props) {
         PlaceholderContent={<ActivityIndicator />}
       />
 
-      <ListItemContent>
+      <ListItem.Content>
         <ListItem.Title>
           No. {item.id} {upperFirst(item.name)}
         </ListItem.Title>
@@ -45,7 +46,7 @@ export default function PokemonListItem({ item, onPress }: Props) {
         <ListItem.Subtitle style={{ color: defaultTheme.colors.grey3 }}>
           Type: {getPokemonType(item)}
         </ListItem.Subtitle>
-      </ListItemContent>
+      </ListItem.Content>
 
       <TouchableOpacity
         onPress={() => toggleFavourite(item.id)}

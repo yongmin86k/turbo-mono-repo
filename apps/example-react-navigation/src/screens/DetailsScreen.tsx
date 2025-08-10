@@ -4,17 +4,19 @@ import { ROUTES } from "../navigations/Routes"
 import { RouteProp, useRoute } from "@react-navigation/native"
 import { useEffect, useMemo } from "react"
 import { upperFirst } from "lodash"
-import { Avatar, defaultTheme, Icon } from "@rneui/base"
+import { Avatar, defaultTheme, Icon } from "@rn-vui/base"
 import { getPokemonImageUrl, getPokemonType } from "../utils/helpers"
 import { Spacer } from "@local/react-native-shared-ui"
 import useLifeCycleLog from "../hooks/useLifeCycleLog"
-import { toggleFavourite, useFavouriteStore } from "../stores/favouriteStore"
+import { toggleFavourite } from "../stores/favouriteStore"
+import { useRootStore } from "../stores/rootStore"
 
 export default function DetailScreen(props: RootStackScreenProps<ROUTES.DETAILS>) {
   const {
     params: { pokemon },
   } = useRoute<RouteProp<RootStackParamList, ROUTES.DETAILS>>()
 
+  const { useFavouriteStore } = useRootStore()
   const isFaved = useFavouriteStore((state) => state.isFaved(pokemon.id))
   const imageUri = useMemo(() => getPokemonImageUrl(pokemon), [pokemon])
 

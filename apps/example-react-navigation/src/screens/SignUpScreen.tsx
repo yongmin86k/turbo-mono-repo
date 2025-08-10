@@ -1,16 +1,17 @@
 import { Alert, StyleSheet, Text } from "react-native"
 import { ROUTES } from "../navigations/Routes"
 import { TabNavigatorProps, TabParamList } from "../models/routes.model"
-import { Button, defaultTheme } from "@rneui/base"
+import { Button, defaultTheme } from "@rn-vui/base"
 import { useCallback, useState } from "react"
 import { KeyboardDismissView, Spacer } from "@local/react-native-shared-ui"
 import KeyboardDissmissInput from "../components/KeyboardDissmissInput"
 import { RouteProp, useFocusEffect, useRoute } from "@react-navigation/native"
-import { useAuthStore } from "../stores/authStore"
 import useLifeCycleLog from "../hooks/useLifeCycleLog"
+import { useRootStore } from "../stores/rootStore"
 
 export default function SignUpScreen(props: TabNavigatorProps<ROUTES.SIGN_UP>) {
   const { params } = useRoute<RouteProp<TabParamList, ROUTES.SIGN_UP>>()
+  const { useAuthStore } = useRootStore()
   const setToken = useAuthStore((state) => state.setToken)
 
   const [email, setEmail] = useState<string | undefined>(params?.email)

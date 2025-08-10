@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react"
-import { setMappedPokemons, usePokemonStore } from "../stores/pokemonStore"
+import { setMappedPokemons } from "../stores/pokemonStore"
 import { POKEMON_API } from "../api/pokemonAPI"
 import { chunk } from "lodash"
 import { Pokemon } from "pokenode-ts"
 import PokemonList from "../components/PokemonList/PokemonList"
 import useLifeCycleLog from "../hooks/useLifeCycleLog"
 import { ROUTES } from "../navigations/Routes"
+import { useRootStore } from "../stores/rootStore"
 
 export default function HomeScreen() {
+  const { usePokemonStore } = useRootStore()
   const pokemons = usePokemonStore((state) => state.pokemons)
   const [isLoading, setIsLoading] = useState(false)
 

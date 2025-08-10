@@ -1,6 +1,6 @@
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5"
 import {} from "@expo/vector-icons"
-import { defaultTheme } from "@rneui/base"
+import { defaultTheme } from "@rn-vui/base"
 
 interface Props {
   name?: string

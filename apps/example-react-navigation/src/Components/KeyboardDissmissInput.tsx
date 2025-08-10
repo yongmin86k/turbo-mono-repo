@@ -1,4 +1,4 @@
-import { Input, InputProps } from "@rneui/base"
+import { Input, InputProps } from "@rn-vui/base"
 import { Keyboard, StyleSheet } from "react-native"
 
 interface Props extends Omit<InputProps, "ref"> {

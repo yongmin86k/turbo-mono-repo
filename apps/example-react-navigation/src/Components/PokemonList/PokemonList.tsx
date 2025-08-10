@@ -3,7 +3,7 @@ import { useMemo } from "react"
 import { ActivityIndicator, FlatList, ListRenderItem, StyleSheet, Text, View } from "react-native"
 import PokemonListItem from "./PokemonListItem"
 import { Spacer } from "@local/react-native-shared-ui"
-import { defaultTheme } from "@rneui/base"
+import { defaultTheme } from "@rn-vui/base"
 import { createElementKey } from "../../utils/helpers"
 
 interface Props {
