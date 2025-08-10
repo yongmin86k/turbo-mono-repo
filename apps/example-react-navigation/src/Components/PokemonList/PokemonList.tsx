@@ -7,6 +7,7 @@ import { defaultTheme } from "@rn-vui/base"
 import { createElementKey } from "../../utils/helpers"
 
 interface Props {
+  testID: string
   pokemons: Map<number, Pokemon>
   isLoading: boolean
   onPress?: (id: number) => void
@@ -22,6 +23,7 @@ export default function PokemonList(props: Props) {
 
   return (
     <FlatList
+      testID={props.testID}
       contentContainerStyle={
         props.isLoading || props.pokemons.size === 0 ? styles.loadingView : undefined
       }

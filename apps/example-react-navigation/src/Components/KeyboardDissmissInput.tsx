@@ -19,8 +19,7 @@ export default function KeyboardDissmissInput(props: Props) {
       break
     case "password":
       defaultProps = {
-        // FIXIT: the UI has a bug
-        // secureTextEntry: true,
+        // secureTextEntry: true, // FIXIT: the UI has a bug
         leftIcon: { type: "font-awesome-5", name: "lock" },
         textContentType: "password",
       }

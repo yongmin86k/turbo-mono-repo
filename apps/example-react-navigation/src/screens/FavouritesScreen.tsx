@@ -30,6 +30,7 @@ export default function FavouritesScreen() {
 
   return (
     <PokemonList
+      testID={ROUTES.FAVOURITES}
       pokemons={favPokemons}
       isLoading={false}
       onPress={(id) => {

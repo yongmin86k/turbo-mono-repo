@@ -40,7 +40,7 @@ export default function DetailScreen(props: RootStackScreenProps<ROUTES.DETAILS>
   useLifeCycleLog(ROUTES.DETAILS)
 
   return (
-    <SafeAreaView style={styles.view}>
+    <SafeAreaView testID={ROUTES.DETAILS} style={styles.view}>
       <ScrollView style={styles.view} contentContainerStyle={styles.scrollView}>
         <View style={styles.textGroup}>
           <Text>Swipe to close is disabled.</Text>

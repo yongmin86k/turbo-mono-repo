@@ -56,5 +56,5 @@ export default function HomeScreen() {
 
   useLifeCycleLog(ROUTES.HOME)
 
-  return <PokemonList pokemons={pokemons} isLoading={isLoading} />
+  return <PokemonList testID={ROUTES.HOME} pokemons={pokemons} isLoading={isLoading} />
 }

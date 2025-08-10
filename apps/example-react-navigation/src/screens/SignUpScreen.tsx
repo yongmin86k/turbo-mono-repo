@@ -59,6 +59,7 @@ export default function SignUpScreen(props: TabNavigatorProps<ROUTES.SIGN_UP>) {
       <Spacer height={24} />
 
       <KeyboardDissmissInput
+        testID="signup-input-email"
         type="email"
         placeholder="Email"
         value={email}
@@ -72,6 +73,7 @@ export default function SignUpScreen(props: TabNavigatorProps<ROUTES.SIGN_UP>) {
       <Spacer />
 
       <KeyboardDissmissInput
+        testID="signup-input-password"
         type="password"
         placeholder="Password"
         value={password}
@@ -81,6 +83,7 @@ export default function SignUpScreen(props: TabNavigatorProps<ROUTES.SIGN_UP>) {
       <Spacer />
 
       <KeyboardDissmissInput
+        testID="signup-input-confirm"
         type="password"
         placeholder="Confirm Password"
         value={confirmPassword}
@@ -90,6 +93,7 @@ export default function SignUpScreen(props: TabNavigatorProps<ROUTES.SIGN_UP>) {
       <Spacer height={80} />
 
       <Button
+        testID="signup-button-submit"
         title="Sign Up"
         disabled={disabled}
         buttonStyle={[
