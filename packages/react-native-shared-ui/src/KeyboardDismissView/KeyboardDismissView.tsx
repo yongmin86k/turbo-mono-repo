@@ -13,17 +13,19 @@ import {
 } from "react-native"
 
 interface Props {
+  testID?: string
   containerStyle?: StyleProp<ViewStyle>
   scrollEnabled?: boolean
 }
 
 export default function KeyboardDismissView({
   children,
+  testID,
   containerStyle,
   scrollEnabled,
 }: React.PropsWithChildren<Props>) {
   return (
-    <SafeAreaView style={styles.view}>
+    <SafeAreaView testID={testID} style={styles.view}>
       <KeyboardAvoidingView
         style={styles.view}
         contentContainerStyle={styles.view}

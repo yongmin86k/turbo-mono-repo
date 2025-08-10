@@ -16,7 +16,7 @@ export default function SignInScreen(props: TabNavigatorProps<ROUTES.SIGN_IN>) {
   useLifeCycleLog(ROUTES.SIGN_IN)
 
   return (
-    <KeyboardDismissView scrollEnabled containerStyle={styles.viewStyle}>
+    <KeyboardDismissView testID={ROUTES.SIGN_IN} scrollEnabled containerStyle={styles.viewStyle}>
       <Text style={styles.defaultText}>Please login with email</Text>
 
       <Spacer height={24} />

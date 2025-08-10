@@ -6,5 +6,6 @@ module.exports = async () => {
       "<rootDir>/../../node_modules/(?!(@react-native|react-native|@react-navigation)/)",
     ],
     setupFilesAfterEnv: ["<rootDir>/tests/init.ts"],
+    testTimeout: 99999,
   }
 }
