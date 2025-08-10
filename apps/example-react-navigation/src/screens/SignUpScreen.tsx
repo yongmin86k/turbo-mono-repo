@@ -53,7 +53,7 @@ export default function SignUpScreen(props: TabNavigatorProps<ROUTES.SIGN_UP>) {
   useLifeCycleLog(ROUTES.SIGN_UP)
 
   return (
-    <KeyboardDismissView containerStyle={styles.viewStyle}>
+    <KeyboardDismissView testID={ROUTES.SIGN_UP} containerStyle={styles.viewStyle}>
       <Text>Please register with email</Text>
 
       <Spacer height={24} />

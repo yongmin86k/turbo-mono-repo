@@ -6,12 +6,12 @@ import { RootStoreProvider } from "./contexts/RootStoreContext"
 
 export default function App() {
   return (
-    <RootStoreProvider>
-      <SafeAreaProvider>
+    <SafeAreaProvider>
+      <RootStoreProvider>
         <NavigationContainer ref={navigationService.ref}>
           <RootStack />
         </NavigationContainer>
-      </SafeAreaProvider>
-    </RootStoreProvider>
+      </RootStoreProvider>
+    </SafeAreaProvider>
   )
 }

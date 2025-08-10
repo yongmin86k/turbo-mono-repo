@@ -13,7 +13,7 @@ export default function TabNavigator() {
     <Tab.Navigator
       screenOptions={{
         headerShown: false,
-        animation: "shift",
+        // animation: "shift", // FIXIT: issue with Jest
         tabBarActiveTintColor: defaultTheme.colors.primary,
         tabBarInactiveTintColor: defaultTheme.colors.grey3,
       }}
