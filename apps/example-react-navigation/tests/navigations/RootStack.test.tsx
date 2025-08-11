@@ -1,5 +1,5 @@
 import { NavigationContainer } from "@react-navigation/native"
-import { render, screen, waitFor } from "../test-utils"
+import { render, screen, waitFor } from "../utils/helpers"
 import RootStack from "../../src/navigations/RootStack"
 import { ROUTES } from "../../src/navigations/Routes"
 

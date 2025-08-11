@@ -5,6 +5,7 @@ import { ROUTES } from "./Routes"
 import IconWrapper from "../components/IconWrapper"
 import { TabParamList } from "../models/routes.model"
 import { defaultTheme } from "@rn-vui/base"
+import { isTestENV } from "../utils/helpers"
 
 const Tab = createBottomTabNavigator<TabParamList>()
 
@@ -13,7 +14,7 @@ export default function TabNavigator() {
     <Tab.Navigator
       screenOptions={{
         headerShown: false,
-        // animation: "shift", // FIXIT: issue with Jest
+        animation: isTestENV ? undefined : "shift",
         tabBarActiveTintColor: defaultTheme.colors.primary,
         tabBarInactiveTintColor: defaultTheme.colors.grey3,
       }}

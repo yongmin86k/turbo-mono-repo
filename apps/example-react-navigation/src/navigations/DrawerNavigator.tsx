@@ -11,6 +11,7 @@ import IconWrapper from "../components/IconWrapper"
 import HomeScreen from "../screens/HomeScreen"
 import FavouritesScreen from "../screens/FavouritesScreen"
 import { useRootStore } from "../stores/rootStore"
+import { isTestENV } from "../utils/helpers"
 
 const Drawer = createDrawerNavigator<DrawerParamList>()
 
@@ -29,6 +30,7 @@ export default function DrawerNavigator() {
         headerRightContainerStyle: {
           paddingRight: 16,
         },
+        drawerStatusBarAnimation: isTestENV ? "none" : undefined,
       }}
       drawerContent={(props) => (
         <DrawerContentScrollView testID="drawer-content" {...props}>

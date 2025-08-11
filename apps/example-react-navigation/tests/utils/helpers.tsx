@@ -1,6 +1,6 @@
 import { ReactElement } from "react"
 import { render, RenderOptions } from "@testing-library/react-native"
-import { RootStoreProvider } from "../src/contexts/RootStoreContext"
+import { RootStoreProvider } from "../../src/contexts/RootStoreContext"
 
 // Don't need to wrap SafeAreaProvider
 const AllTheProviders = ({ children }: { children: ReactElement }) => {

@@ -15,3 +15,5 @@ export const getPokemonType = (pokemon: Pokemon) => {
 export const createElementKey = (pokemon: Pokemon) => {
   return `${pokemon.id}-${pokemon.name}`
 }
+
+export const isTestENV = process.env.NODE_ENV === "test"

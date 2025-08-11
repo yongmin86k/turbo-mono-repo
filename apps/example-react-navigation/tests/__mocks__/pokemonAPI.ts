@@ -5,13 +5,12 @@ import pokemon3 from "./mockdata-getPokemonByName-3.json"
 
 jest.mock("pokenode-ts")
 
-export const POKEMON_API = jest.fn().mockImplementation(() => {
-  return {
-    getPokemonByName: jest
-      .fn()
-      .mockImplementationOnce(() => pokemon1)
-      .mockImplementationOnce(() => pokemon2)
-      .mockImplementationOnce(() => pokemon3),
-    listPokemons: jest.fn().mockImplementation(() => pokemonList),
-  }
-})
+export const POKEMON_API = {
+  getPokemonByName: jest
+    .fn()
+    .mockResolvedValueOnce(pokemon1)
+    .mockResolvedValueOnce(pokemon2)
+    .mockResolvedValueOnce(pokemon3)
+    .mockResolvedValue(pokemon1),
+  listPokemons: jest.fn().mockResolvedValue(pokemonList),
+}
