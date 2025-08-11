@@ -1,7 +1,8 @@
-import { defineConfig } from "eslint/config";
-import expoPlugin from "eslint-plugin-expo";
-import expoConfig from "eslint-config-expo/flat.js";
-import base from "./base.js";
+import { defineConfig } from 'eslint/config'
+import expoConfig from 'eslint-config-expo/flat.js'
+import reactNativePlugin from 'eslint-plugin-react-native'
+import testingLibraryPlugin from 'eslint-plugin-testing-library'
+import base from './base.js'
 
 /**
  * A custom ESLint configuration for libraries that use React.
@@ -11,11 +12,27 @@ export default defineConfig([
   ...base,
   expoConfig,
   {
-    ignores: ["dist/*"],
+    plugins: {
+      'react-native': reactNativePlugin,
+    },
+    rules: {
+      'react-native/no-unused-styles': 'warn',
+      'react-native/sort-styles': [
+        'warn',
+        'asc',
+        { ignoreClassNames: false, ignoreStyleProperties: false },
+      ],
+    },
+  },
+  {
+    rules: {
+      'react/no-unescaped-entities': 'off',
+    }
   },
   {
     plugins: {
-      expo: expoPlugin,
+      'testing-library/react-native': testingLibraryPlugin,
+      files: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[jt]s?(x)'],
     },
-  },
-]);
+  }
+])

@@ -1,10 +1,11 @@
 {
   "name": "turbo-mono-repo",
   "private": true,
-   "scripts": {
+  "scripts": {
     "build": "turbo run build",
-    "start": "turbo run dev",
-    "lint": "turbo run lint"
+    "start": "turbo run start",
+    "lint": "turbo run lint",
+    "postinstall": "patch-package"
   },
   "devDependencies": {
     "turbo": "^2.5.5"
@@ -13,5 +14,9 @@
   "workspaces": [
     "apps/*",
     "packages/*"
-  ]
+  ],
+  "dependencies": {
+    "patch-package": "^8.0.0",
+    "postinstall-postinstall": "^2.1.0"
+  }
 }

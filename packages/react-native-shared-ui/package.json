@@ -1,0 +1,31 @@
+{
+  "name": "@local/react-native-shared-ui",
+  "version": "0.0.0",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsup",
+    "start": "tsup --watch",
+    "clean": "rm -rf dist",
+    "lint": "eslint .",
+    "check-types": "tsc --noEmit",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:clear": "jest --clearCache"
+  },
+  "devDependencies": {
+    "@local/eslint-config": "*",
+    "@local/typescript-config": "*",
+    "eslint": "9.31.0",
+    "jest": "29.7.0",
+    "tsup": "^8.5.0",
+    "typescript": "5.8.3"
+  },
+  "peerDependencies": {
+    "@rn-vui/base": "^5.1.8",
+    "@rn-vui/themed": "^5.1.8",
+    "react": "19.0.0",
+    "react-native": "0.79.5"
+  }
+}

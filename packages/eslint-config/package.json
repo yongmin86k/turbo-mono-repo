@@ -8,14 +8,18 @@
     "./react-native": "./react-native.js"
   },
   "devDependencies": {
+    "@stylistic/eslint-plugin": "^5.2.2",
     "eslint": "^9.31.0",
     "eslint-config-expo": "^9.2.0",
     "eslint-config-prettier": "^10.1.8",
+    "eslint-config-turbo": "^2.5.5",
     "eslint-plugin-expo": "^0.1.4",
     "eslint-plugin-only-warn": "^1.1.0",
     "eslint-plugin-prettier": "^5.5.3",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-native": "^5.0.0",
+    "eslint-plugin-testing-library": "^7.6.3",
     "eslint-plugin-turbo": "^2.5.5",
     "prettier": "^3.6.2",
     "typescript": "^5.8.3",

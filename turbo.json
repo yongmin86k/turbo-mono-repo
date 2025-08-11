@@ -1,23 +1,21 @@
 {
   "$schema": "https://turborepo.com/schema.json",
+  "globalEnv": ["NODE_ENV"],
   "tasks": {
     "build": {
-      "dependsOn": [
-        "^build"
-      ],
-      "outputs": [
-        "dist/**",
-        "lib/**",
-        "*.js"
-      ]
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**", "lib/**", "*.js"]
     },
     "lint": {},
-    "clean": {
-      "cache": false
-    },
     "start": {
       "cache": false,
       "persistent": true
-    }
+    },
+    "test": {},
+    "test:watch": {
+      "cache": false,
+      "persistent": true
+    },
+    "test:clear": {}
   }
 }
