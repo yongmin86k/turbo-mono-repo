@@ -30,9 +30,17 @@ export default defineConfig([
     }
   },
   {
+    // Target all test files
+    files: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[jt]s?(x)'],
     plugins: {
-      'testing-library/react-native': testingLibraryPlugin,
-      files: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[jt]s?(x)'],
+      'testing-library': testingLibraryPlugin,
     },
-  }
+    rules: {
+      // Enforce testing library best practices
+      'testing-library/await-async-queries': 'warn',
+      'testing-library/no-await-sync-queries': 'warn',
+      'testing-library/prefer-screen-queries': 'warn',
+      'testing-library/prefer-presence-queries': 'warn',
+    },
+  },
 ])
