@@ -11,7 +11,7 @@ export default function SettingsScreen() {
   useLifeCycleLog(ROUTES.SETTINGS)
 
   return (
-    <View style={styles.view}>
+    <View testID={ROUTES.SETTINGS} style={styles.view}>
       <Button title="Sign out" size="lg" onPress={() => setToken(null)} />
     </View>
   )

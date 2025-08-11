@@ -11,7 +11,8 @@
     "lint": "eslint .",
     "check-types": "tsc --noEmit",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "test:clear": "jest --clearCache"
   },
   "devDependencies": {
     "@local/eslint-config": "*",

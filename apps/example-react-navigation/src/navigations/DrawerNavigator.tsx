@@ -1,4 +1,8 @@
-import { createDrawerNavigator } from "@react-navigation/drawer"
+import {
+  createDrawerNavigator,
+  DrawerContentScrollView,
+  DrawerItemList,
+} from "@react-navigation/drawer"
 import SettingsScreen from "../screens/SettingsScreen"
 import { ROUTES } from "./Routes"
 import { DrawerParamList } from "../models/routes.model"
@@ -18,7 +22,7 @@ export default function DrawerNavigator() {
     <Drawer.Navigator
       screenOptions={{
         headerRight: () => (
-          <TouchableOpacity onPress={() => setToken(null)}>
+          <TouchableOpacity testID="logout-button" onPress={() => setToken(null)}>
             <IconWrapper name="sign-out-alt" size={22} />
           </TouchableOpacity>
         ),
@@ -26,6 +30,11 @@ export default function DrawerNavigator() {
           paddingRight: 16,
         },
       }}
+      drawerContent={(props) => (
+        <DrawerContentScrollView testID="drawer-content" {...props}>
+          <DrawerItemList {...props} />
+        </DrawerContentScrollView>
+      )}
     >
       <Drawer.Screen
         name={ROUTES.HOME}

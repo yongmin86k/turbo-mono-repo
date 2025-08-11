@@ -7,6 +7,5 @@ module.exports = async () => {
     ],
     setupFilesAfterEnv: ["<rootDir>/tests/init.ts"],
     testTimeout: 99999,
-    cache: false,
   }
 }

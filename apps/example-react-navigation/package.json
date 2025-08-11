@@ -11,7 +11,8 @@
     "lint": "eslint .",
     "check-types": "tsc --noEmit",
     "test": "jest -c jest.config.cjs",
-    "test:watch": "jest -c jest.config.cjs --watch"
+    "test:watch": "jest -c jest.config.cjs --watch",
+    "test:clear": "jest --clearCache"
   },
   "dependencies": {
     "@local/react-native-shared-ui": "*",
