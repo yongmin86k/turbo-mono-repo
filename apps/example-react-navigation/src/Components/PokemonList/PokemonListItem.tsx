@@ -25,6 +25,7 @@ export default function PokemonListItem({ item, onPress }: Props) {
 
   return (
     <ListItem
+      testID={`pokemon-list-item-${item.id}`}
       containerStyle={styles.list}
       onPress={() =>
         onPress ? onPress(item.id) : navigation.navigate(ROUTES.DETAILS, { pokemon: item })

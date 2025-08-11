@@ -124,4 +124,34 @@ describe("DrawerNavigator", () => {
 
     expect(screen.getByRole("heading", { name: HEADER.HOME })).toBeDefined()
   })
+
+  describe("Home screen", () => {
+    it("should navigate to the Details screen by the FlatListItem", async () => {
+      const user = userEvent.setup()
+      const FlatListItem1 = screen.getByTestId("pokemon-list-item-1")
+
+      // Navigate to Details
+      await user.press(FlatListItem1)
+      act(() => {
+        jest.runAllTimers()
+      })
+
+      const Details = screen.getByTestId(ROUTES.DETAILS)
+
+      expect(Details).toBeVisible()
+      expect(screen.queryByRole("heading", { name: HEADER.HOME })).toBeNull()
+
+      // Navigate back
+      const CloseButton = within(Details).getByText("Close")
+      await user.press(CloseButton)
+      act(() => {
+        jest.runAllTimers()
+      })
+
+      expect(screen.queryByTestId(ROUTES.DETAILS)).toBeNull()
+      expect(screen.getByRole("heading", { name: HEADER.HOME })).toBeDefined()
+    })
+  })
+
+  // TODO: FAV, SIGN OUT
 })
