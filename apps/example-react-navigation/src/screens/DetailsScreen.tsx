@@ -11,7 +11,7 @@ import useLifeCycleLog from "../hooks/useLifeCycleLog"
 import { toggleFavourite } from "../stores/favouriteStore"
 import { useRootStore } from "../stores/rootStore"
 
-export default function DetailScreen(props: RootStackScreenProps<ROUTES.DETAILS>) {
+export default function DetailsScreen(props: RootStackScreenProps<ROUTES.DETAILS>) {
   const {
     params: { pokemon },
   } = useRoute<RouteProp<RootStackParamList, ROUTES.DETAILS>>()

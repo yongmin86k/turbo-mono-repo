@@ -3,7 +3,7 @@ import DrawerNavigator from "./DrawerNavigator"
 import TabNavigator from "./TabNavigator"
 import { RootStackParamList } from "../models/routes.model"
 import { ROUTES } from "./Routes"
-import DetailScreen from "../screens/DetailsScreen"
+import DetailsScreen from "../screens/DetailsScreen"
 import { useRootStore } from "../stores/rootStore"
 
 const Stack = createNativeStackNavigator<RootStackParamList>()
@@ -20,7 +20,7 @@ export default function RootStack() {
 
           <Stack.Screen
             name={ROUTES.DETAILS}
-            component={DetailScreen}
+            component={DetailsScreen}
             options={{
               headerShown: true,
               presentation: "modal",

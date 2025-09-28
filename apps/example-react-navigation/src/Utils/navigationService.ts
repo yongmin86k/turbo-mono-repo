@@ -13,10 +13,10 @@ const navigationService = () => {
 
   const log = (...params: any[]) => console.log("Navigation service:", ...params)
 
-  const onReadyCallback = (navigaionAction: CommonActions.Action) => {
+  const onReadyCallback = (navigationAction: CommonActions.Action) => {
     if (!getIsRefReady()) return log("ref is not ready")
 
-    ref.dispatch(navigaionAction)
+    ref.dispatch(navigationAction)
   }
 
   const goToDetails = (params: RootStackParamList[ROUTES.DETAILS]) => {
